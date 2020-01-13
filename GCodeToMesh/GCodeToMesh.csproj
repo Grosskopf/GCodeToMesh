@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{EB885330-8CDE-4B9B-B517-F7CD112BD95A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>GCodeToMesh</RootNamespace>
+    <AssemblyName>GCodeToMesh</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MeshLoaderNet.cs" />
+    <Compile Include="MeshLoader.cs" />
+    <Compile Include="MeshCreatorInput.cs" />
+    <Compile Include="GCodeMeshGenerator.cs" />
+    <Compile Include="GCodeHandler.cs" />
+    <Compile Include="MeshSimplifierStruct.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Algorithms\DecimationAlgorithm.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Algorithms\FastQuadricMeshSimplification.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Collections\ResizableArray.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Collections\UVChannels.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Loggers\ConsoleLogger.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\MathHelper.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\SymmetricMatrix.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\Vector2.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\Vector2d.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\Vector2i.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\Vector3.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\Vector3d.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\Vector3i.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\Vector4.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\Vector4d.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Math\Vector4i.cs" />
+    <Compile Include="meshserializer.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\MeshDecimation.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Logging.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\BoneWeight.cs" />
+    <Compile Include="MeshDecimator\MeshDecimator\Mesh.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
